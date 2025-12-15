@@ -46,15 +46,12 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   let cpuModel = cpus[0]?.model || 'Unknown Model'
   let cpuSpeed = cpu.speed.toFixed(2)
 
-  let caption = `⋆ ★ 🚀 𝑺𝑻𝑨𝑻𝑶 𝑺𝑰𝑺𝑻𝑬𝑴𝑨 🚀 ★ ⋆
-╭♡꒷ ๑ ⋆˚₊⋆───ʚ˚ɞ───⋆˚₊⋆ ๑ ⪩
-୧ ⌛ *Uptime:* ${clockString(uptime)}
-୧ ⚡ *Ping:* ${speed} ms
-  💻 *CPU:* ${cpuModel}
-  🔋 *Usage:* ${cpuSpeed} MHz
-  💾 *RAM:* ${format(totalmem() - freemem())} / ${format(totalmem())}
-  🟢 *Free:* ${format(freemem())}
-╰♡꒷ ๑ ⋆˚₊⋆───ʚ˚ɞ───⋆˚₊⋆ ๑ ⪩
+  let caption = `🚀 𝑺𝑻𝑨𝑻𝑶 𝑺𝑰𝑺𝑻𝑬𝑴𝑨 🚀 
+⌛ *Uptime:* ${clockString(uptime)}
+⚡ *Ping:* ${speed} ms
+💻 *CPU:* ${cpuModel}
+🔋 *Usage:* ${cpuSpeed} MHz
+ 💾 *RAM:* ${format(totalmem() - freemem())} / ${format(totalmem())}
 `
 
   const profilePictureUrl = await fetchProfilePictureUrl(conn, m.sender)
@@ -64,7 +61,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
       forwardingScore: 999,
       isForwarded: true,
       forwardedNewsletterMessageInfo: {
-        newsletterJid: '120363259442839354@newsletter',
+        newsletterJid: '',
         serverMessageId: '',
         newsletterName: `${nomeDelBot}`
       }
