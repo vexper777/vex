@@ -16,7 +16,7 @@ let handler = async (m, { conn, args, groupMetadata, participants, usedPrefix, c
     if (ps.length === 0) return;
 
     switch (command) {
-        case "𝑽𝑬𝑿𝑷𝑬𝑹":
+        case "vexregna":
             if (!bot.restrict) return;
             if (!isBotAdmin) return;
 
