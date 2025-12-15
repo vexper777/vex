@@ -5,18 +5,18 @@ import { fileURLToPath } from 'url';
 
 global.botnumber = '';
 global.confirmCode = '';
-global.nomebot = '𝐂𝐡𝐚𝐭𝐔𝐧𝐢𝐭𝐲-𝐁𝐨𝐭';
-global.packname = '𝐂𝐡𝐚𝐭𝐔𝐧𝐢𝐭𝐲-𝐁𝐨𝐭';
-global.author = '𝐌𝐝';
+global.nomebot = '𝖛𝖊𝖝-𝖇𝖔𝖙';
+global.packname = '𝖛𝖊𝖝-𝖇𝖔𝖙';
+global.author = 'ᐯ乇乂卩乇尺';
 global.vs = '8.4';
-global.collab = 'Demon Slayer';
+global.collab = '𝔻𝕋ℍ-𝔹𝕆𝕋';
 global.wm = global.nomebot;
 global.wait = 'ⓘ 𝐂𝐚𝐫𝐢𝐜𝐚𝐦𝐞𝐧𝐭𝐨 ...';
 
 
 global.owner = [
-  ['393773842461', '𝐂𝐡𝐚𝐭𝐔𝐧𝐢𝐭𝐲', true],
-  ['xxxxxxxxxx'], //mettete il vostro numero al posto delle x e copiate sopra il formato dopo ovvero 'nome', true
+  ['12894482918', 'vexper', true],
+  ['xxxxxxxxxx', 'Deadly', true],
   ['xxxxxxxxxx'],
   ['xxxxxxxxxx'],
   ['xxxxxxxxxx'],
