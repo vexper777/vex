@@ -63,7 +63,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
       forwardedNewsletterMessageInfo: {
         newsletterJid: '',
         serverMessageId: '',
-        newsletterName: `${nomeDelBot}`
+        newsletterName: `𝖛𝖊𝖝-𝖇𝖔𝖙`
       }
     }
   }
