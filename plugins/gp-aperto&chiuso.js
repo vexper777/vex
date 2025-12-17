@@ -2,12 +2,12 @@ let handler = async (m, { conn, command }) => {
     let isOpen = command === 'aperto'
     await conn.groupSettingUpdate(m.chat, isOpen ? 'not_announcement' : 'announcement')
     await conn.sendMessage(m.chat, {
-        text: isOpen ? '𝐂𝐡𝐚𝐭 𝐚𝐩𝐞𝐫𝐭𝐚 𝐩𝐞𝐫 𝐭𝐮𝐭𝐭𝐢' : '𝐂𝐡𝐚𝐭 𝐩𝐞𝐫 𝐬𝐨𝐥𝐢 𝐚𝐝𝐦𝐢𝐧',
+        text: isOpen ? '𝐏𝐚𝐫𝐥𝐚𝐭𝐞 𝐑𝐈𝐊𝐊𝐈𝐎𝐍𝐈' : '𝐎𝐫𝐚 𝐩𝐚𝐫𝐥𝐚𝐧𝐨 𝐠𝐥𝐢 𝐃𝐞𝐢',
         contextInfo: {
             forwardingScore: 99,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363259442839354@newsletter',
+                newsletterJid: '',
                 serverMessageId: '',
                 newsletterName: global.db.data.nomedelbot || `𝐂𝐡𝐚𝐭𝐔𝐧𝐢𝐭𝐲`
             }
