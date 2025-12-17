@@ -515,8 +515,8 @@ export async function participantsUpdate({ id, participants, action }) {
 
   let chat = global.db.data.chats[id] || {}
   let text = ''
-  let nomeDelBot = global.db.data.nomedelbot || `𝐂𝐡𝐚𝐭𝐔𝐧𝐢𝐭𝐲-𝐁𝐨𝐭`
-  let jidCanale = global.db.data.jidcanale || '120363259442839354@newsletter'
+  let nomeDelBot = global.db.data.nomedelbot || `𝖛𝖊𝖝-𝖇𝖔𝖙`
+  let jidCanale = global.db.data.jidcanale || ''
 
   switch (action) {
     case 'add':
