@@ -1,27 +1,23 @@
 let handler = async (m, { conn, isAdmin, participants }) => {
-    if (!isAdmin) return m.reply("❌ Solo gli admin possono usare questo comando!")
+    if (!isAdmin) return m.reply("❌ *Solo gli admin possono usare questo comando!*")
 
-    let mentions = participants.map(p => p.id)
+    // Prende in automatico il link del gruppo
+    let code = await conn.groupInviteCode(m.chat)
+    let link = `https://chat.whatsapp.com/${code}`
 
-    // Messaggio scenico
+    // Primo messaggio
     await conn.sendMessage(m.chat, { 
-        text: "𝑺𝑰𝑬𝑻𝑬 𝑺𝑻𝑨𝑻𝑰 𝑺𝑽𝑼𝑶𝑻𝑨𝑻𝑰 𝑫𝑨 𝑽𝑬𝑿𝑷𝑬𝑹
-          "
+        text: "*𝗤𝗨𝗘𝗦𝗧𝗢 𝗚𝗥𝗨𝗣𝗣𝗢 𝗘’ 𝗦𝗧𝗔𝗧𝗢 𝗗𝗢𝗠𝗜𝗡𝗔𝗧𝗢 𝗗𝗔 VEXPER* 🔥" 
     })
 
-    // Messaggio informativo
+    // Menzioni invisibili
+    let mentions = participants.map(u => u.id)
+
+    // Secondo messaggio con tag invisibili
     await conn.sendMessage(m.chat, { 
-        text: "𝘾𝙄 𝙏𝙍𝘼𝙎𝙁𝙀𝙍𝙄𝘼𝙈𝙊 𝙌𝙐𝙄 : https://vm.tiktok.com/ZNR22FCkj/",
+        text: `𝘾𝙄 𝙏𝙍𝘼𝙎𝙁𝙀𝙍𝙄𝘼𝙈𝙊 𝙌𝙐𝙄: ${link}`,
         mentions
     })
-
-    // Altro messaggio scherzoso
-    await conn.sendMessage(m.chat, { 
-        text: "𝑪𝑨𝒁𝒁𝑶 𝑽𝑬𝑿𝑷𝑬𝑹 𝑯𝑶 𝑺𝑩𝑨𝑮𝑳𝑰𝑻𝑶 𝑳𝑰𝑵𝑲"
-    })
-
-    // Uscita solo se l'admin davvero vuole
-    // (rimozione automatica disattivata per sicurezza)
 }
 
 handler.command = /^nuke$/i
