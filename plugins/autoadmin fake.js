@@ -8,7 +8,7 @@ let handler = async (m, { conn, usedPrefix }) => {
       forwardingScore: 999,
       isForwarded: true,
       forwardedNewsletterMessageInfo: {
-        newsletterJid:',
+        newsletterJid:'',
         serverMessageId: '',
         newsletterName: `${nomeDelBot}`
       }
