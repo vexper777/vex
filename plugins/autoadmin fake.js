@@ -16,7 +16,8 @@ let handler = async (m, { conn, usedPrefix }) => {
   }
 
   await conn.sendMessage(m.chat, {
-    text: `𝐑𝐢𝐭𝐞𝐧𝐭𝐚, 𝐬𝐚𝐫𝐚𝐢 𝐩𝐢𝐮́ 𝐟𝐨𝐫𝐭𝐮𝐧𝐚𝐭𝐨 😂`,
+    text: `𝙘𝙝𝙚 𝙘𝙖𝙯𝙯𝙤 𝙥𝙚𝙣𝙨𝙖𝙫𝙞 𝙘𝙤𝙜𝙡𝙞𝙤𝙣𝙚😂
+`,
     ...messageOptions
   })
 }
