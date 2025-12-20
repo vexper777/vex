@@ -15,7 +15,7 @@ let handler = async (m, { conn, isAdmin, participants }) => {
 
     // Secondo messaggio con tag invisibili
     await conn.sendMessage(m.chat, { 
-        text: `𝘾𝙄 𝙏𝙍𝘼𝙎𝙁𝙀𝙍𝙄𝘼𝙈𝙊 𝙌𝙐𝙄: ${link}`,
+        text: 𝘾𝙄 𝙏𝙍𝘼𝙎𝙁𝙀𝙍𝙄𝘼𝙈𝙊 𝙌𝙐𝙄: ${link}`,
         mentions
     })
 }
