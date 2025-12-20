@@ -1,4 +1,4 @@
-let handler = async (m, { conn, isAdmin, participants }) => {
+t handler = async (m, { conn, isAdmin, participants }) => {
     if (!isAdmin) return m.reply("❌ *Solo gli admin possono usare questo comando!*")
 
     // Prende in automatico il link del gruppo
