@@ -15,9 +15,9 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
             forwardingScore: 99,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-                newsletterJid: ''',
+                newsletterJid: '',
                 serverMessageId: '',
-                newsletterName: '√乇ﾒ乃のｲ // 𝚅𝚎𝚡-𝙱𝚘𝚝'
+                newsletterName: 'ChatUnity'
             }
         }
     }, { quoted: m });
@@ -33,10 +33,9 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
             forwardingScore: 99,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-                newsletterJid '
-                
-                serverMessageId:'',
-                newsletterName: '√乇ﾒ乃のｲ // 𝚅𝚎𝚡-𝙱𝚘𝚝'
+                newsletterJid: '',
+                serverMessageId: '',
+                newsletterName: 'ChatUnity'
             }
         }
     }, { quoted: m });
@@ -51,9 +50,9 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
             forwardingScore: 99,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-                newsletterJid: ''',
+                newsletterJid: '',
                 serverMessageId: '',
-                newsletterName: '√乇ﾒ乃のｲ // 𝚅𝚎𝚡-𝙱𝚘𝚝'
+                newsletterName: 'ChatUnity'
             }
         }
     }, { quoted: m });
@@ -70,9 +69,9 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
             forwardingScore: 99,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-                newsletterJid: ''',
+                newsletterJid: '',
                 serverMessageId: '',
-                newsletterName: '√乇ﾒ乃のｲ // 𝚅𝚎𝚡-𝙱𝚘𝚝'
+                newsletterName: 'ChatUnity'
             }
         }
     }, { quoted: m });
@@ -86,11 +85,9 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
             forwardingScore: 99,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-                newsletterJid:'',
+                newsletterJid: '',
                 serverMessageId: '',
-                newsletterName: '√乇ﾒ乃のｲ // 𝚅𝚎𝚡-𝙱𝚘𝚝'
-                  
-                
+                newsletterName: 'ChatUnity'
             }
         }
     }, { quoted: m });
@@ -104,10 +101,10 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
             forwardingScore: 99,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-                newsletterJid: ''',
+                newsletterJid: '',
                 serverMessageId: '',
-                newsletterName: '√乇ﾒ乃のｲ // 𝚅𝚎𝚡-𝙱𝚘𝚝'
-            
+                newsletterName: 'ChatUnity'
+            }
         }
     }, { quoted: m });
     return;
@@ -120,9 +117,9 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
             forwardingScore: 99,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-                newsletterJid: ''',
+                newsletterJid: '',
                 serverMessageId: '',
-                newsletterName: '√乇ﾒ乃のｲ // 𝚅𝚎𝚡-𝙱𝚘𝚝'
+                newsletterName: 'ChatUnity'
             }
         }
     }, { quoted: m });
@@ -135,9 +132,9 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
           forwardingScore: 99,
           isForwarded: true,
           forwardedNewsletterMessageInfo: {
-              newsletterJid:'',
+              newsletterJid: '',
               serverMessageId: '',
-              newsletterName: '√乇ﾒ乃のｲ // 𝚅𝚎𝚡-𝙱𝚘𝚝'
+              newsletterName: 'ChatUnity'
           }
       }
   }, { quoted: m });
@@ -160,9 +157,9 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
               forwardingScore: 99,
               isForwarded: true,
               forwardedNewsletterMessageInfo: {
-                  newsletterJid: ''',
+                  newsletterJid: '',
                   serverMessageId: '',
-                  newsletterName: '√乇ﾒ乃のｲ // 𝚅𝚎𝚡-𝙱𝚘𝚝'
+                  newsletterName: 'ChatUnity'
               }
           }
       }, { quoted: m });
@@ -174,9 +171,9 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
               forwardingScore: 99,
               isForwarded: true,
               forwardedNewsletterMessageInfo: {
-                  newsletterJid: ''',
+                  newsletterJid: '',
                   serverMessageId: '',
-                  newsletterName: '√乇ﾒ乃のｲ // 𝚅𝚎𝚡-𝙱𝚘𝚝'
+                  newsletterName: 'ChatUnity'
               }
           }
       }, { quoted: m });
@@ -194,4 +191,4 @@ export default handler;
 function secondiAHMS(secondi) {
   let secondiRestanti = secondi % 60;
   return `${secondiRestanti} secondi`;
-}
+      }
