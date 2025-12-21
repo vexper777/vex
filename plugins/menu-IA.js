@@ -2,7 +2,7 @@ import { performance } from 'perf_hooks';
 import '../lib/language.js';
 
 const handler = async (message, { conn, usedPrefix }) => {
-    const imagePath = './media/ia.jpeg';
+    const imagePath = './media/ia.jpg';
 
     const menuText = `
 ⚡𝑴𝑬𝑵𝑼 𝑰𝑨⚡
