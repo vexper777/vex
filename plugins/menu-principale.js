@@ -3,34 +3,73 @@ import fetch from 'node-fetch';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
-
+import '../lib/language.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+/**
+ * Menu principale con SOLO utenti registrati
+ * e titolo personalizzato
+ */
+function generateMenuText(userCount = 0) {
+  return `𝖛𝖊𝖝-𝖇𝖔𝖙 *Menu Principale*
 
-const handler = async (message, { conn, usedPrefix, command }) => {
-    const userCount = Object.keys(global.db.data.users).length;
+Utenti registrati: *${userCount}*
 
+─────────────────────`;
+}
 
-    const menuText = generateDarkMenuText(usedPrefix, userCount);
+const handler = async (message, { conn, usedPrefix = '.', command }) => {
+    const userId = message.sender;
+    const groupId = message.isGroup ? message.chat : null;
 
+    const userCount = Object.keys(global.db?.data?.users || {}).length;
 
-    const videoPath = path.join(__dirname, '../menu/edit1.mp4'); 
+    // ===== TUO MENU TESTUALE PERSONALIZZATO =====
+    const extraMenu = `\n🏠 *MENU PRINCIPALE*
 
+*Founder* :
+➥ Vexper 💀
+
+─────────────────────
+
+➥ Consigliafilm 🎬
+➥ Pokeball 🏐
+➥ Agejob 👾
+➥ Sigaretta 🚬
+➥ Bestemmiometro on/off 😠
+➥ Rsban 👾
+➥ Ping 🚀
+➥ Staff 🤖
+➥ Creatore 👑
+
+*𝑽𝑬𝑹𝑺𝑰𝑶𝑵𝑬:* ${vs}
+`;
+
+    const menuText = generateMenuText(userCount) + extraMenu;
+
+    const imagePath = path.join(__dirname, '../media/principale.jpeg');
+
+    const footerText = global.t ? global.t('menuFooter', userId, groupId) : 'Scegli un menu:';
+    const adminMenuText = global.t ? global.t('menuAdmin', userId, groupId) : '🛡️ Menu Admin';
+    const ownerMenuText = global.t ? global.t('menuOwner', userId, groupId) : '👑 Menu Owner';
+    const securityMenuText = global.t ? global.t('menuSecurity', userId, groupId) : '🚨 Menu Sicurezza';
+    const groupMenuText = global.t ? global.t('menuGroup', userId, groupId) : '👥 Menu Gruppo';
+    const aiMenuText = global.t ? global.t('menuAI', userId, groupId) : '🤖 Menu IA';
 
     await conn.sendMessage(
         message.chat,
         {
-            video: { url: videoPath },
+            image: { url: imagePath },
             caption: menuText,
-            footer: '𝘚𝘤𝘦𝘨𝘭𝘪 𝘶𝘯 𝘮𝘦𝘯𝘶...',
+            footer: footerText,
             buttons: [
-                { buttonId: `${usedPrefix}menuadmin`, buttonText: { displayText: "🛡️ Menu Admin" }, type: 1 },
-                { buttonId: `${usedPrefix}menuowner`, buttonText: { displayText: "👑 Menu Owner" }, type: 1 },
-                { buttonId: `${usedPrefix}menusicurezza`, buttonText: { displayText: "🚨 Menu Sicurezza" }, type: 1 },
-                { buttonId: `${usedPrefix}menugruppo`, buttonText: { displayText: "👥 Menu Gruppo" }, type: 1 },
-                { buttonId: `${usedPrefix}menuia`, buttonText: { displayText: "🤖 Menu IA" }, type: 1 }
+                { buttonId: `${usedPrefix}menuadmin`, buttonText: { displayText: adminMenuText }, type: 1 },
+                { buttonId: `${usedPrefix}menuowner`, buttonText: { displayText: ownerMenuText }, type: 1 },
+                { buttonId: `${usedPrefix}menusicurezza`, buttonText: { displayText: securityMenuText }, type: 1 },
+                { buttonId: `${usedPrefix}menugruppo`, buttonText: { displayText: groupMenuText }, type: 1 },
+                { buttonId: `${usedPrefix}menuia`, buttonText: { displayText: aiMenuText }, type: 1 }
             ],
             viewOnce: true,
             headerType: 4
@@ -38,43 +77,8 @@ const handler = async (message, { conn, usedPrefix, command }) => {
     );
 };
 
-
 handler.help = ['menu'];
 handler.tags = ['menu'];
 handler.command = /^(menu|comandi)$/i;
 
-
 export default handler;
-
-
-function generateDarkMenuText(prefix, userCount) {
-    const version = 'v7.0-dark';
-    return `
-╔═『 𝖛𝖊𝖝-𝖇𝖔𝖙 』═╗
-
-
-  𝔐𝔢𝔫𝔲 𝔡𝔢𝔦 ℭ𝔬𝔪𝔞𝔫𝔡𝔦 
-
-
-⚔️ ${prefix}staff
-🕯️ ${prefix}egemonia
-📜 ${prefix}candidati
-🕷️ ${prefix}installa
-📖 ${prefix}guida
-⚙️ ${prefix}sistema
-❓ ${prefix}faq
-🚀 ${prefix}ping
-📝 ${prefix}segnala <comando>
-💡 ${prefix}consiglia <comando>
-
-
-╠═══[ ℹ️ 𝘋𝘈𝘛𝘐 ]═══╣
-• 𝘝𝘦𝘳𝘴𝘪𝘰𝘯𝘦: ${version}
-• 𝘜𝘵𝘦𝘯𝘵𝘪: ${userCount}
-╚═══════════════════╝
-`.trim();
-}
-
-
-
-
