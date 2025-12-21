@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
  * e titolo personalizzato
  */
 function generateMenuText(userCount = 0) {
-  return `𝔻𝕋ℍ-𝔹𝕆𝕋 *Menu Principale*
+  return `𝖛𝖊𝖝-𝖇𝖔𝖙 *Menu Principale*
 
 Utenti registrati: *${userCount}*
 
@@ -30,7 +30,7 @@ const handler = async (message, { conn, usedPrefix = '.', command }) => {
     const extraMenu = `\n🏠 *MENU PRINCIPALE*
 
 *Founder* :
-➥ 𝕯𝖊ⱥ𝖉𝖑𝐲 💀
+➥ Vexper 💀
 
 ─────────────────────
 
