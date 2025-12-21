@@ -282,7 +282,7 @@ handler.before = async (m, { conn, usedPrefix, command }) => {
 
         await conn.sendMessage(chat, {
             text: congratsMessage,
-            footer: 'vare ✧ bot',
+            footer: '𝚅𝚎𝚡-𝙱𝚘𝚝',
             interactiveButtons: playAgainButtons()
         }, { quoted: m });
         delete global.bandieraGame[chat];
@@ -292,14 +292,14 @@ handler.before = async (m, { conn, usedPrefix, command }) => {
         await conn.reply(chat, '👀 *Ci sei quasi!*', m);
 
     } else if (game.tentativi[m.sender] >= 3) {
-        let failText = `ㅤ⋆｡˚『 ╭ \`TENTATIVI ESAURITI!\` ╯ 』˚｡⋆\n╭\n`;
+        let failText = `ㅤ『 ╭ \`TENTATIVI ESAURITI!\` ╯ 』\n╭\n`;
         failText += `│ 『 ❌ 』 \`Hai esaurito i tuoi 3 tentativi!\`\n`;
         failText += `│ 『 ⏳ 』 _*Aspetta che altri provino...*_\n`;
         failText += `*╰⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*`;
 
         await conn.sendMessage(chat, {
             text: failText,
-            footer: '* √乇ﾒ乃のｲ // 𝚅𝚎𝚡-𝙱𝚘𝚝*',
+            footer: '√乇ﾒ乃のｲ // 𝚅𝚎𝚡-𝙱𝚘𝚝',
             interactiveButtons: playAgainButtons()
         }, { quoted: m });
         delete global.bandieraGame[chat];
