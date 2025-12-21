@@ -9,7 +9,7 @@ const handler = async (message, { conn, usedPrefix }) => {
     const menuText = `
 ⚡𝑴𝑬𝑵𝑼 𝐆𝐑𝐔𝐏𝐏𝐎⚡
 ╔═══════════════════╗
-*Amo Vampexe By 𝕯𝖊ⱥ𝖉𝖑𝐲*
+* VEXPER *
 
  ➥ Meteo (città) 🌍
 ➥ Orario (città) 🕒
