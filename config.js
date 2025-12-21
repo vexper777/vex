@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 
 global.botnumber = '';
 global.confirmCode = '';
-global.nomebot = '𝖛𝖊𝖝-𝖇𝖔𝖙';
+global.nomebot = '√乇ﾒ乃のｲ // 𝚅𝚎𝚡-𝙱𝚘𝚝';
 global.packname = '𝖛𝖊𝖝-𝖇𝖔𝖙';
 global.author = 'ᐯ乇乂卩乇尺';
 global.vs = '1.0';
