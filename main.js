@@ -376,7 +376,7 @@ if (!fs.existsSync(`./${authFile}/creds.json`)) {
         const randomCode = generateRandomCode();
         let codeBot = await conn.requestPairingCode(addNumber, randomCode);
         codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot;
-        console.log(chalk.bold.white(chalk.bgBlueBright(TIENI IL CODICE COGLIONE:')), chalk.bold.white(chalk.white(codeBot)));
+        console.log(chalk.bold.white(chalk.bgBlueBright('TIENI IL CODICE COGLIONE:')), chalk.bold.white(chalk.white(codeBot)));
       }, 3000);
     }
   }
