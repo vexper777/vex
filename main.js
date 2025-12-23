@@ -222,7 +222,7 @@ if (!methodCodeQR && !methodCode && !fs.existsSync(`./${authFile}/creds.json`)) 
 │  ☁️  Opzione 2: Codice 8 caratteri
 │
 ╰────────────────
-                 りｲん乃のｲ // ᴅᴛʜ-ʙᴏᴛ 
+                 りｲん乃のｲ // 𝚅𝚎𝚡-𝙱𝚘𝚝
 `;
     opzione = await question(menu + '\nInserisci la tua scelta ---> ');
     if (!/^[1-2]$/.test(opzione)) {
