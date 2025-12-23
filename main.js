@@ -218,12 +218,11 @@ if (!methodCodeQR && !methodCode && !fs.existsSync(`./${authFile}/creds.json`)) 
     const menu = `╭────────────────────
 │       ¡METODO DI COLLEGAMENTO! 
 │
-│    Opzione 1: Codice QR
-│    Opzione 2: Codice 8 caratteri
+│  👾  Opzione 1: Codice QR
+│  ☁️  Opzione 2: Codice 8 caratteri
 │
 ╰────────────────
-               𝚅𝚎𝚡-𝙱𝚘𝚝 
-
+                 りｲん乃のｲ // ᴅᴛʜ-ʙᴏᴛ 
 `;
     opzione = await question(menu + '\nInserisci la tua scelta ---> ');
     if (!/^[1-2]$/.test(opzione)) {
@@ -367,7 +366,7 @@ if (!fs.existsSync(`./${authFile}/creds.json`)) {
       if (phoneNumber) {
         addNumber = phoneNumber.replace(/[^0-9]/g, '');
       } else {
-        phoneNumber = await question(chalk.bgBlack(chalk.bold.bgMagentaBright(`METTI STO CAZZO DI NUMERO DI WHATSAPP.\n${chalk.bold.yellowBright("Esempio: +393471234567")}\n${chalk.bold.magenta('PS: è normale che appare il qrcode incollate comunque il numero')}`)));
+        phoneNumber = await question(chalk.bgBlack(chalk.bold.bgMagentaBright(`Inserisci il numero di WhatsApp.\n${chalk.bold.yellowBright("Esempio: +393471234567")}\n${chalk.bold.magenta('PS: è normale che appare il qrcode incollate comunque il numero')}`)));
         addNumber = phoneNumber.replace(/\D/g, '');
         if (!phoneNumber.startsWith('+')) phoneNumber = `+${phoneNumber}`;
         rl.close();
@@ -376,7 +375,7 @@ if (!fs.existsSync(`./${authFile}/creds.json`)) {
         const randomCode = generateRandomCode();
         let codeBot = await conn.requestPairingCode(addNumber, randomCode);
         codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot;
-        console.log(chalk.bold.white(chalk.bgBlueBright('TIENI IL CODICE COGLIONE:')), chalk.bold.white(chalk.white(codeBot)));
+        console.log(chalk.bold.white(chalk.bgBlueBright('🩸≫ CODICE COLLEGALO GAY:')), chalk.bold.white(chalk.white(codeBot)));
       }, 3000);
     }
   }
@@ -414,9 +413,9 @@ async function connectionUpdate(update) {
 
   if (qr && (opzione === '1' || methodCodeQR) && !global.qrGenerated) {
     console.log(chalk.bold.yellow(`
-           SCANSIONA IL CODICE QR
-         Scade tra 45 secondi
-
+┊ ┊ ┊ ┊‿ ˚➶ ｡˚   SCANSIONA IL CODICE QR
+┊ ┊ ┊ ˚✧ Scade tra 45 secondi
+┊ ˚➶ ｡˚ ☁︎ 
 `));
     global.qrGenerated = true;
   }
@@ -436,7 +435,7 @@ async function connectionUpdate(update) {
       global.isLogoPrinted = true;
       await chatunityedition();
     }
-    
+
     try {
       await conn.groupAcceptInvite('FjPBDj4sUgFLJfZiLwtTvk');
       console.log(chalk.bold.green('✅ Bot entrato nel gruppo supporto con successo - non abbandonare!'));
@@ -455,22 +454,22 @@ async function connectionUpdate(update) {
       global.connectionMessagesPrinted.badSession = true;
       await global.reloadHandler(true).catch(console.error);
     } else if (reason === DisconnectReason.connectionLost && !global.connectionMessagesPrinted.connectionLost) {
-      console.log(chalk.bold.blueBright(`\n╭⭑⭒━━━⚠️  CONNESSIONE PERSA COL SERVER ┃      🔄 RICONNESSIONE IN CORSO... \n               𝚅𝚎𝚡-𝙱𝚘𝚝
+      console.log(chalk.bold.blueBright(`\n╭⭑⭒━━━✦❘༻ ⚠️  CONNESSIONE PERSA COL SERVER ༺❘✦━━━⭒⭑\n┃      🔄 RICONNESSIONE IN CORSO... \n╰⭑⭒━━━✦❘༻☾⋆₊✧ りｲん乃のｲ // ᴅᴛʜ-ʙᴏᴛ ✧₊⁺⋆☽༺❘✦━━━⭒⭑`));
       global.connectionMessagesPrinted.connectionLost = true;
       await global.reloadHandler(true).catch(console.error);
     } else if (reason === DisconnectReason.connectionReplaced && !global.connectionMessagesPrinted.connectionReplaced) {
-      console.log(chalk.bold.yellowBright(` ⚠️  CONNESSIONE SOSTITUITA ⭑\n┃  È stata aperta un'altra sessione, \n┃  chiudi prima quella attuale.\n╰ 𝚅𝚎𝚡-𝙱𝚘𝚝 ));
+      console.log(chalk.bold.yellowBright(`╭⭑⭒━━━✦❘༻ ⚠️  CONNESSIONE SOSTITUITA ༺❘✦━━━⭒⭑\n┃  È stata aperta un'altra sessione, \n┃  chiudi prima quella attuale.\n╰⭑⭒━━━✦❘༻☾⋆⁺₊✧ りｲん乃のｲ // ᴅᴛʜ-ʙᴏᴛ ✧₊⁺⋆☽༺❘✦━━━⭒⭑`));
       global.connectionMessagesPrinted.connectionReplaced = true;
     } else if (reason === DisconnectReason.loggedOut && !global.connectionMessagesPrinted.loggedOut) {
       console.log(chalk.bold.redBright(`\n⚠️ DISCONNESSO, ELIMINA LA CARTELLA ${global.authFile} E SCANSIONA IL CODICE QR ⚠️`));
       global.connectionMessagesPrinted.loggedOut = true;
       await global.reloadHandler(true).catch(console.error);
     } else if (reason === DisconnectReason.restartRequired && !global.connectionMessagesPrinted.restartRequired) {
-      console.log(chalk.bold.magentaBright(`\ CONNESSO CON SUCCESSO  `));
+      console.log(chalk.bold.magentaBright(`\n⭑⭒━━━✦❘༻ CONNESSO CON SUCCESSO  ༺❘✦━━━⭒⭑`));
       global.connectionMessagesPrinted.restartRequired = true;
       await global.reloadHandler(true).catch(console.error);
     } else if (reason === DisconnectReason.timedOut && !global.connectionMessagesPrinted.timedOut) {
-      console.log(chalk.bold.yellowBright(`\n╭⭑⭒━━━✦❘༻ ⌛ TIMEOUT CONNESSIONE ༺❘✦━━━⭒⭑\n┃     🔄 RICONNESSIONE IN CORSO...\n ((𝚅𝚎𝚡-𝙱𝚘𝚝 `));
+      console.log(chalk.bold.yellowBright(`\n╭⭑⭒━━━✦❘༻ ⌛ TIMEOUT CONNESSIONE ༺❘✦━━━⭒⭑\n┃     🔄 RICONNESSIONE IN CORSO...\n╰⭑⭒━━━✦❘༻☾⋆⁺₊✧ りｲん乃のｲ // ᴅᴛʜ-ʙᴏᴛ ✧₊⁺⋆☽༺❘✦━━━⭒⭑`));
       global.connectionMessagesPrinted.timedOut = true;
       await global.reloadHandler(true).catch(console.error);
     } else if (reason !== DisconnectReason.restartRequired && reason !== DisconnectReason.connectionClosed && !global.connectionMessagesPrinted.unknown) {
@@ -498,8 +497,9 @@ async function connectSubBots() {
 
   try {
     const subBotFolders = readdirSync(subBotDirectory).filter(file =>
-      statSync(join(subBotDirectory, file)).isDirectory()
-    );
+      statSync(join(subBotDirectory, file)).
+      isDirectory()
+            );
 
     if (subBotFolders.length === 0) {
       console.log(chalk.bold.magenta('Nessun subbot collegato'));
@@ -556,7 +556,7 @@ async function connectSubBots() {
         const participant = msg.key.participant || from;
         const buttonText = msg.message.buttonsResponseMessage.selectedDisplayText;
         console.log(chalk.bold.cyan(`Bottone premuto: ${buttonId} (${buttonText}) da ${participant}`));
-        
+
         if (global.handler) {
           const fakeMsg = {
             ...msg,
@@ -566,14 +566,14 @@ async function connectSubBots() {
           await global.handler.handler(fakeMsg);
         }
       }
-      
+
       if (msg?.message?.listResponseMessage) {
         const listId = msg.message.listResponseMessage.title;
         const selectedId = msg.message.listResponseMessage.listType;
         const from = msg.key.remoteJid;
         const participant = msg.key.participant || from;
         console.log(chalk.bold.cyan(`Elemento lista selezionato: ${listId} - ${selectedId} da ${participant}`));
-        
+
         if (global.handler) {
           const fakeMsg = {
             ...msg,
@@ -585,9 +585,9 @@ async function connectSubBots() {
       }
     });
     console.log(chalk.bold.magenta(`
-
-  𝚅𝚎𝚡-𝙱𝚘𝚝 coneesso 
-));
+╭﹕₊˚ ★ ⁺˳ꕤ₊⁺・꒱
+  ⋆  ︵︵ ★ ᴅᴛʜ-ʙᴏᴛ connesso ★ ︵︵ ⋆
+╰. ꒷꒦ ꒷꒦‧˚₊˚꒷꒦꒷‧˚₊˚꒷꒦꒷`));
     await connectSubBots();
   } catch (error) {
     console.error(chalk.bold.bgRedBright(`🥀 Errore nell'avvio del bot: `, error));
@@ -624,7 +624,7 @@ global.reloadHandler = async function (restatConn) {
   }
 
   conn.welcome = '@user benvenuto/a in @subject';
-  conn.bye = '@user ha abbandonato il gruppo';
+  conn.bye = '@user ha abbandonato @subject';
   conn.spromote = '@user è stato promosso ad amministratore';
   conn.sdemote = '@user non è più amministratore';
   conn.sIcon = 'immagine gruppo modificata';
@@ -765,4 +765,4 @@ const mainWatcher = watch(filePath, async () => {
   console.log(chalk.bold.bgBlueBright("Main Aggiornato"));
   await global.reloadHandler(true).catch(console.error);
 });
-mainWatcher.setMaxListeners(20);
+mainWatcher.setMaxListeners(20);                                                      
