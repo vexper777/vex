@@ -8,7 +8,7 @@ let handler = async (m) => {
           forwardingScore: 99,
           isForwarded: true,
           forwardedNewsletterMessageInfo: {
-              newsletterJid: '',
+              newsletterJid: '120363420674060561@newsletter',
               serverMessageId: '',
               newsletterName: '${nomebot}'
           }
@@ -18,6 +18,6 @@ let handler = async (m) => {
 
 handler.help = ['unbanchat'];
 handler.tags = ['owner'];
-handler.command = /^.wakeup|unbangp$/i;
+handler.command = /^wakeywakey|unbangp$/i;
 handler.rowner = true;
 export default handler;
