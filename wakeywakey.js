@@ -10,7 +10,7 @@ let handler = async (m) => {
           forwardedNewsletterMessageInfo: {
               newsletterJid: '120363420674060561@newsletter',
               serverMessageId: '',
-              newsletterName: '${nomebot}'
+              newsletterName: '${𝚅𝚎𝚡-𝙱𝚘𝚝}'
           }
       }
   }, { quoted: m });
