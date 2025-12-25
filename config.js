@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 
 global.botnumber = '';
 global.confirmCode = '';
-global.nomebot = '√乇ﾒ乃のｲ // 𝚅𝚎𝚡-𝙱𝚘𝚝';
+global.nomebot = '𝚅𝚎𝚡-𝙱𝚘𝚝';
 global.packname = '𝖛𝖊𝖝-𝖇𝖔𝖙';
 global.author = 'ᐯ乇乂卩乇尺';
 global.vs = '1.0';
@@ -16,7 +16,7 @@ global.wait = 'ⓘ 𝐂𝐚𝐫𝐢𝐜𝐚𝐦𝐞𝐧𝐭𝐨 ...';
 
 global.owner = [
   ['212614325674', 'vexper', true],
-  ['573135258986', 'Deadly', true],
+  ['447529688238', 'Deadly', true],
   ['xxxxxxxxxx'],
   ['xxxxxxxxxx'],
   ['xxxxxxxxxx'],
