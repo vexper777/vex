@@ -18,6 +18,6 @@ let handler = async (m) => {
 
 handler.help = ['unbanchat'];
 handler.tags = ['owner'];
-handler.command = /^wake up|unbangp$/i;
+handler.command = /^.wakeup|unbangp$/i;
 handler.rowner = true;
 export default handler;
