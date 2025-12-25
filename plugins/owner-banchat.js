@@ -4,6 +4,6 @@ m.reply('𝒗𝒆𝒅𝒐 𝒐𝒇𝒇 𝒄𝒐𝒔𝒊 𝒏𝒐𝒏 𝒎𝒊 �
 }
 handler.help = ['silent']
 handler.tags = ['owner']
-handler.command = /^banchat|bangp$/i
+handler.command = /^silent|bangp$/i
 handler.rowner = true
 export default handler
