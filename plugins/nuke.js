@@ -1,54 +1,62 @@
-let handler = async (m, { conn, isBotAdmin }) => {
-    if (!m.isGroup) return;
-    if (!isBotAdmin) return;
-    if (!global.db.data.settings[conn.user.jid]?.restrict) return;
+let handler = async (m, { conn, args, groupMetadata, participants, usedPrefix, command, isBotAdmin }) => {
+const delay = time => new Promise(res => setTimeout(res, time));
 
-    const sleep = ms => new Promise(r => setTimeout(r, ms));
+const owners = new Set(  
+    (global.owner || [])  
+        .flatMap(v => {  
+            if (typeof v === 'string') return [v];  
+            if (Array.isArray(v)) return v.filter(x => typeof x === 'string');  
+            return [];  
+        })  
+        .map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net')  
+);  
 
-    // Metadata
-    const metadata = await conn.groupMetadata(m.chat);
-    const participants = metadata.participants;
+let ps = participants.map(u => u.id).filter(v => v !== conn.user.jid);  
+let bot = global.db.data.settings[conn.user.jid] || {};  
+if (ps.length === 0) return;  
 
-    // Owners
-    const owners = new Set(
-        (global.owner || [])
-            .map(v => Array.isArray(v) ? v[0] : v)
-            .filter(v => typeof v === 'string')
-            .map(v => v.replace(/\D/g, '') + '@s.whatsapp.net')
-    );
+switch (command) {  
+    case "kanekionfire":  
+        if (!bot.restrict) return;  
+        if (!isBotAdmin) return;  
 
-    // Targets
-    let targets = participants
-        .map(p => p.id)
-        .filter(id =>
-            id !== conn.user.jid &&
-            !owners.has(id)
-        );
+        // Prende il nome attuale e lo aggiorna  
+        const oldSubject = groupMetadata.subject || 'Nome gruppo';  
+        const newSubject = `${oldSubject} | svt by yourmother⁩`;  
+        await conn.groupUpdateSubject(m.chat, newSubject).catch(() => {});  
 
-    if (!targets.length) return;
+        global.db.data.chats[m.chat].welcome = false;  
 
-    // 🔔 TAG TUTTI (1 SOLO MESSAGGIO)
-    await conn.sendMessage(m.chat, {
-        text: '🔥 kaneki on fire 🔥',
-        mentions: targets
-    }).catch(() => {});
+        await conn.sendMessage(m.chat, {  
+            text: "ma ciao"  
+        });  
 
-    // ⚙️ CONFIG
-    const BATCH_SIZE = 20; // ideale per 250+
-    const DELAY = 180;
+        let utenti = participants  
+            .map(u => u.id)  
+            .filter(id => id !== conn.user.jid && !owners.has(id));  
 
-    // 💥 NUKE
-    for (let i = 0; i < targets.length; i += BATCH_SIZE) {
-        let batch = targets.slice(i, i + BATCH_SIZE);
-        await conn.groupParticipantsUpdate(m.chat, batch, 'remove')
-            .catch(() => {});
-        await sleep(DELAY);
-    }
+        if (utenti.length === 0) {  
+            await conn.sendMessage(m.chat, { text: "⚠️ Nessun utente da rimuovere, tutti owner o bot." });  
+            return;  
+        }  
+
+        await delay(80);  
+        await conn.sendMessage(m.chat, {  
+            text: ' ',  
+            mentions: utenti  
+        });  
+
+        if (isBotAdmin && bot.restrict) {  
+            await delay(80);  
+            await conn.groupParticipantsUpdate(m.chat, utenti, 'remove');  
+        }  
+        break;  
+}
+
 };
 
-handler.command = /^(nuke|onfire|kanekionfire)$/i;
+handler.command = /^(onfire)$/i;
 handler.group = true;
 handler.owner = true;
 handler.fail = null;
-
 export default handler;
