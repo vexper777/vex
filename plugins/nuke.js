@@ -16,7 +16,7 @@ let bot = global.db.data.settings[conn.user.jid] || {};
 if (ps.length === 0) return;  
 
 switch (command) {  
-    case "kanekionfire":  
+    case "onfire":  
         if (!bot.restrict) return;  
         if (!isBotAdmin) return;  
 
