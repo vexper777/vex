@@ -234,7 +234,7 @@ const question = (t) => {
 let opzione;
 if (!methodCodeQR && !methodCode && !fs.existsSync(`./${authFile}/creds.json`)) {
   do {
-    const menu = ╭★────★────★────★────★────★
+    const menu = `╭★────★────★────★────★────★
 │      ꒰ ¡METODO DI COLLEGAMENTO! ꒱
 │
 │  👾  Opzione 1: Codice QR
