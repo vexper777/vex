@@ -12,61 +12,6 @@ import chalk from 'chalk';
 import syntaxerror from 'syntax-error';
 import { tmpdir } from 'os';
 import { format } from 'util';
-import pino from 'pino';
-import { makeWASocket, protoType, serialize } from './lib/simple.js';
-import { Low, JSONFile } from 'lowdb';
-import readline from 'readline';
-import NodeCache from 'node-cache';
-
-
-const sessionFolder = path.join(process.cwd(), global.authFile || 'sessioni');
-const tempDir = join(process.cwd(), 'temp');
-const tmpDir = join(process.cwd(), 'tmp');
-
-
-if (!existsSync(tempDir)) {
-  mkdirSync(tempDir, { recursive: true });
-}
-if (!existsSync(tmpDir)) {
-  mkdirSync(tmpDir, { recursive: true });
-}
-
-
-function clearSessionFolderSelective(dir = sessionFolder) {
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-    return;
-  }
-  const entries = fs.readdirSync(dir);
-  for (const entry of entries) {
-    const fullPath = path.join(dir, entry);
-    if (entry === 'creds.json') continue;
-    const stat = fs.statSync(fullPath);
-    if (stat.isDirectory()) {
-      clearSessionFolderSelective(fullPath);
-      fs.rmdirSync(fullPath);
-    } else {
-      if (!entry.startsWith('pre-key')) {
-        try {
-          fs.unlinkSync(fullPath);
-        } catch {}
-      }
-    }
-  }
-  console.log(`Cartella sessioni pulita (file non critici rimossi): ${new Date().toLocaleTimeString()}`);
-}
-
-
-function purgeSession(sessionDir, cleanPreKeys = false) {
-  if (!existsSync(sessionDir)) return;
-  const files = readdirSync(sessionDir);
-  files.forEach(file => {
-    if (file === 'creds.json') return;
-    const filePath = path.join(sessionDir, file);
-    const stats = statSync(filePath);
-    const fileAge = (Date.now() - stats.mtimeMs) / (1000 * 60 * 60 * 24);
-    if (file.startsWith('pre-key') && cleanPreKeys) {
-      if (fileAge > 1) {
         try {
           unlinkSync(filePath);
         } catch {}
