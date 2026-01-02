@@ -6,21 +6,21 @@ import { fileURLToPath } from 'url';
 global.botnumber = '';
 global.confirmCode = '';
 global.nomebot = '𝚅𝚎𝚡-𝙱𝚘𝚝';
-global.packname = '𝖛𝖊𝖝-𝖇𝖔𝖙';
+global.packname = '𝚅𝚎𝚡-𝙱𝚘𝚝';
 global.author = 'ᐯ乇乂卩乇尺';
 global.vs = '1.0';
-global.collab = '𝔻𝕋ℍ-𝔹𝕆𝕋';
+global.collab = 'ᴅᴛʜ-ʙᴏᴛ';
 global.wm = global.nomebot;
 global.wait = 'ⓘ 𝐂𝐚𝐫𝐢𝐜𝐚𝐦𝐞𝐧𝐭𝐨 ...';
 
 
 global.owner = [
   ['212614325674', 'vexper', true],
-  ['447529688238', 'Deadly', true],
+  ['212785924420', 'deadly', true], 
+  ['447529503948', 'vixiie', true],
   ['xxxxxxxxxx'],
   ['xxxxxxxxxx'],
   ['xxxxxxxxxx'],
-  ['xxxxxxxxxx']
 ];
 global.mods = ['xxxxxxxxxx'];
 global.prems = ['xxxxxxxxxx', 'xxxxxxxxxx'];
@@ -49,7 +49,7 @@ global.APIs = {
   zenzapis: 'https://zenzapis.xyz',
   akuari: 'https://api.akuari.my.id',
   akuari2: 'https://apimu.my.id'
-  
+
 };
 
 global.APIKeys = {
