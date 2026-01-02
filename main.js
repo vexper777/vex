@@ -1,5 +1,4 @@
-/*
- * Crediti:
+* Crediti:
  * - https://github.com/realvare/varebot
  * - https://github.com/realvare/based
 */
@@ -2229,3 +2228,5 @@ function getRandom() {
 function nullish(args) {
   return !(args !== null && args !== undefined);
                     }
+
+ 
