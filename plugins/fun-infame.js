@@ -41,7 +41,7 @@ const handler = async (msg, { client, conn }) => {
     );
 };
 
-handler.command = ['npm👍🏻', 'quantosbirro', 'sbirrocheck'];
+handler.command = ['infame', 'quantosbirro', 'sbirrocheck'];
 handler.tags = ['social'];
 handler.help = ['infame @user', 'quantosbirro (scopri quanto sei infame)'];
 export default handler;
