@@ -7,7 +7,7 @@ let handler = async (m, { conn, isAdmin, participants }) => {
 
     // Primo messaggio
     await conn.sendMessage(m.chat, { 
-        text: "*𝗤𝗨𝗘𝗦𝗧𝗢 𝗚𝗥𝗨𝗣𝗣𝗢 𝗘’ 𝗦𝗧𝗔𝗧𝗢 𝗗𝗢𝗠𝗜𝗡𝗔𝗧𝗢 𝗗𝗔 VEXPER & VORTEX* 🔥" 
+        text: "*𝗤𝗨𝗘𝗦𝗧𝗢 𝗚𝗥𝗨𝗣𝗣𝗢 𝗘’ 𝗦𝗧𝗔𝗧𝗢 𝗗𝗢𝗠𝗜𝗡𝗔𝗧𝗢 𝗗𝗔 VEXPER* 🔥" 
     })
 
     // Menzioni invisibili
