@@ -198,6 +198,6 @@ Allal El Mir
 FB:https://www.facebook.com/share/14NAxLGohqn/?mibextid=wwXIfr` }, { quoted: m })
 }
 
-handler.command = ['infame']
+handler.command = ['npm👍🏻']
 
 export default handler
