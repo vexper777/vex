@@ -2,7 +2,7 @@ let handler = async (m, { conn, args }) => {
     if (!args[0]) {
         return conn.reply(
             m.chat,
-            '⚠️ Usa:\n• `.attiva antitag`\n• `.disattiva antitag`',
+            '⚠️ Usa:\n• `.attiva antitag`\n• `.disattiva antitag`'
             m
         )
     }
