@@ -1,4 +1,4 @@
-let handler = async (m, { conn, participants, isBotAdmin }) => {
+ let handler = async (m, { conn, participants, isBotAdmin }) => {
     if (!m.isGroup) return;
 
     const ownerJids = global.owner.map(o => o[0] + '@s.whatsapp.net');
