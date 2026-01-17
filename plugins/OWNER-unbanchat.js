@@ -1,22 +1,9 @@
 let handler = async (m) => {
-  global.db.data.chats[m.chat].isBanned = false;
-  let message = '𝐜𝐡𝐚𝐭 𝐬𝐛𝐥𝐨𝐜𝐜𝐚𝐭𝐚 𝐜𝐨𝐧 𝐬𝐮𝐜𝐜𝐞𝐬𝐬𝐨 ✓';
-  await conn.sendMessage(m.chat, { 
-      text: message,
-      contextInfo: {
-          forwardingScore: 99,
-          isForwarded: true,
-          forwardedNewsletterMessageInfo: {
-              newsletterJid: '',
-              serverMessageId: '',
-              newsletterName: ''
-          }
-      }
-  }, { quoted: m });
-};
-
-handler.help = ['unbanchat'];
-handler.tags = ['owner'];
-handler.command = /^unbanchat|unbangp$/i;
-handler.owner = true;
-export default handler;
+global.db.data.chats[m.chat].isBanned = false
+m.reply('𝕀𝐋 𝐁𝕆𝐓 𝕊𝕀 𝚵 𝕊𝐕𝚵𝐆𝐋𝕀𝚲𝐓Ꮻ 🔔')
+}
+handler.help = ['unbanchat']
+handler.tags = ['owner']
+handler.command = /^on$/i
+handler.rowner = true
+export default handler
