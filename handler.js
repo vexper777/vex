@@ -451,7 +451,7 @@ export async function handler(chatUpdate) {
         break
       }
     }
-  } catch (e) {
+} catch (e) {
     console.error(e)
   } finally {
     if (opts['queque'] && m.text) {
@@ -632,7 +632,7 @@ global.dfail = (type, m, conn) => {
         title: `${msg}`,
         body: ``,
         previewType: 'PHOTO',
-        thumbnail: fs.readFileSync('./media/principale.jpeg'),
+        thumbnail: fs.readFileSync('./media/accessonegato.jpeg'),
         mediaType: 1,
         renderLargerThumbnail: true
       }
