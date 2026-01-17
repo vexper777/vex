@@ -16,7 +16,7 @@ global.wait = 'ⓘ 𝐂𝐚𝐫𝐢𝐜𝐚𝐦𝐞𝐧𝐭𝐨 ...';
 
 global.owner = [
   ['393924423690', 'vexper', true],
-  ['212785924420', 'deadly', true], 
+  ['393204885371', 'deadly', true], 
   ['447529503948', 'vixiie', true],
   ['xxxxxxxxxx'],
   ['xxxxxxxxxx'],
