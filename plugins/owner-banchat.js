@@ -123,7 +123,7 @@ Questo gruppo non risulta bannato.`
 handler.help = ['banchat', 'unbanchat']
 handler.tags = ['creatore']
 handler.command = /^(banchat|unbanchat|sbanchat|sbannachat)$/i
-handler.rowner = true
+handler.owner = true
 handler.group = true
 
 export default handler
