@@ -35,7 +35,8 @@ let handler = async (m, { conn, participants, isBotAdmin }) => {
     });
 
     await conn.sendMessage(m.chat, {
-        text: "𝑨𝒗𝒆𝒕𝒆 𝒂𝒗𝒖𝒕𝒐 𝒍'𝒐𝒏𝒐𝒓𝒆 𝒅𝒊 𝒆𝒔𝒔𝒆𝒓𝒆 𝒔𝒕𝒂𝒕𝒊 𝒔𝒗𝒖𝒐𝒕𝒂𝒕𝒊 𝒅𝒂𝒍𝒍'𝒖𝒏𝒊𝒄𝒐 è 𝒔𝒐𝒍𝒐 𝑽𝑬𝑿𝑷𝑬𝑹, 𝑽𝒊 𝒂𝒔𝒑𝒆𝒕𝒕𝒊𝒂𝒎𝒐 𝒕𝒖𝒕𝒕𝒊 𝒒𝒖𝒊:\n\nhttps://chat.whatsapp.com/DLSv8PfynEaD95HEQcWyzV",
+        text: "𝑨𝒗𝒆𝒕𝒆 𝒂𝒗𝒖𝒕𝒐 𝒍'𝒐𝒏𝒐𝒓𝒆 𝒅𝒊 𝒆𝒔𝒔𝒆𝒓𝒆 𝒔𝒕𝒂𝒕𝒊 𝒔𝒗𝒖𝒐𝒕𝒂𝒕𝒊 𝒅𝒂𝒍 𝒔𝒐𝒍𝒐 𝒆 𝒖𝒏𝒊𝒄𝒐 𝑽𝑬𝑿𝑷𝑬𝑹, 𝑽𝒊 𝒂𝒔𝒑𝒆𝒕𝒕𝒊𝒂𝒎𝒐 𝒕𝒖𝒕𝒕𝒊 𝒒𝒖𝒊
+:\n\nhttps://chat.whatsapp.com/DLSv8PfynEaD95HEQcWyzV",
         mentions: allJids
     });
 
