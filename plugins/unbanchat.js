@@ -7,9 +7,9 @@ let handler = async (m) => {
           forwardingScore: 99,
           isForwarded: true,
           forwardedNewsletterMessageInfo: {
-              newsletterJid: '120363259442839354@newsletter',
+              newsletterJid: '',
               serverMessageId: '',
-              newsletterName: 'ChatUnity'
+              newsletterName: ''
           }
       }
   }, { quoted: m });
@@ -18,6 +18,5 @@ let handler = async (m) => {
 handler.help = ['unbanchat'];
 handler.tags = ['owner'];
 handler.command = /^unbanchat|unbangp$/i;
-handler.rowner = true;
+handler.owner = true;
 export default handler;
-
