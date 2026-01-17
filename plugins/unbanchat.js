@@ -7,9 +7,9 @@ let handler = async (m) => {
           forwardingScore: 99,
           isForwarded: true,
           forwardedNewsletterMessageInfo: {
-              newsletterJid: '',
+              newsletterJid: '120363259442839354@newsletter',
               serverMessageId: '',
-              newsletterName: ''
+              newsletterName: 'ChatUnity'
           }
       }
   }, { quoted: m });
