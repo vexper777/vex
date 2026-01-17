@@ -4,7 +4,7 @@ m.reply('𝐌𝐨𝐝𝐚𝐥𝐢𝐭à 𝐀𝐅𝐊 𝐚𝐭𝐭𝐢𝐯𝐚�
 }
 handler.help = ['banchat']
 handler.tags = ['owner']
-handler.command = /^bonoir$/i
+handler.command = /^banchat$/i
 handler.rowner = true
 export default handler
 
