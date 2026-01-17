@@ -1,3 +1,6 @@
+// Plugin fatto da Deadly 
+// Crediti DTH-BOT
+
 let handler = async (m, { conn, command }) => {
   // Identifica l'utente da menzione o citazione
   let who
