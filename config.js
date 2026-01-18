@@ -7,16 +7,16 @@ global.botnumber = '';
 global.confirmCode = '';
 global.nomebot = '𝚅𝚎𝚡-𝙱𝚘𝚝';
 global.packname = '𝚅𝚎𝚡-𝙱𝚘𝚝';
-global.author = 'ᐯ乇乂卩乇尺';
-global.vs = '1.0';
-global.collab = 'ᴅᴛʜ-ʙᴏᴛ';
+global.author = 'ᐯ乇乂卩乇尺';';
+global.vs = '2.0';
+global.collab = 'Demon Slayer';
 global.wm = global.nomebot;
 global.wait = 'ⓘ 𝐂𝐚𝐫𝐢𝐜𝐚𝐦𝐞𝐧𝐭𝐨 ...';
 
 
 global.owner = [
   ['393924423690', 'vexper', true],
-  ['393204885371', 'deadly', true], 
+  ['393204885371', 'death', true], 
   ['212601646793', 'zein', true],
   ['xxxxxxxxxx'],
   ['xxxxxxxxxx'],
