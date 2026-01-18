@@ -5,22 +5,22 @@ import { fileURLToPath } from 'url';
 
 global.botnumber = '';
 global.confirmCode = '';
-global.nomebot = '𝚅𝚎𝚡-𝙱𝚘𝚝';
-global.packname = '𝚅𝚎𝚡-𝙱𝚘𝚝';
-global.author = 'ᐯ乇乂卩乇尺';
-global.vs = '2.0';
-global.collab = 'Demon Slayer';
+global.nomebot = '√乇ﾒ乃のｲ // 𝚅𝚎𝚡-𝙱𝚘𝚝';
+global.packname = '√乇ﾒ乃のｲ // 𝚅𝚎𝚡-𝙱𝚘𝚝';
+global.author = 'ᐯ乇乂卩乇尺';';
+global.vs = '1.0';
+global.collab = 'ᐯ乇乂卩乇尺';';
 global.wm = global.nomebot;
 global.wait = 'ⓘ 𝐂𝐚𝐫𝐢𝐜𝐚𝐦𝐞𝐧𝐭𝐨 ...';
 
 
 global.owner = [
-  ['393924423690', 'vexper', true],
-  ['393204885371', 'death', true], 
-  ['212601646793', 'zein', true],
-  ['*************'],
+  ['393924423690'], 'vexper', true],
+  ['393204885371'], 'death', true],
+  ['212601646793'],  'zein', true],
   ['xxxxxxxxxx'],
   ['xxxxxxxxxx'],
+  ['xxxxxxxxxx']
 ];
 global.mods = ['xxxxxxxxxx'];
 global.prems = ['xxxxxxxxxx', 'xxxxxxxxxx'];
