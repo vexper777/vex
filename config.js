@@ -18,7 +18,7 @@ global.owner = [
   ['393924423690', 'vexper', true],
   ['393204885371', 'death', true], 
   ['212601646793', 'zein', true],
-  ['xxxxxxxxxx'],
+  ['*************'],
   ['xxxxxxxxxx'],
   ['xxxxxxxxxx'],
 ];
