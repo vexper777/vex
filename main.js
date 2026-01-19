@@ -112,7 +112,7 @@ setInterval(async () => {
 }, 3 * 60 * 60 * 1000);
 
 
-const { useMultiFileAuthState, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, Browsers, jidNormalizedUser, makeInMemoryStore, DisconnectReason } = await import('@chatunity/baileys');
+const { useMultiFileAuthState, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, Browsers, jidNormalizedUser, makeInMemoryStore, DisconnectReason } = await import('@whiskeysockets/baileys');
 const { chain } = lodash;
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000;
 protoType();
@@ -241,7 +241,7 @@ if (!methodCodeQR && !methodCode && !fs.existsSync(`./${authFile}/creds.json`)) 
 │  ☁️  Opzione 2: Codice 8 caratteri
 │
 ╰★────★────★────★────★
-               ꒷꒦ ✦ Sborra Bot ✦ ꒷꒦
+               ꒷꒦ ✦ ChatUnity ✦ ꒷꒦
 ╰♡꒷ ๑ ⋆˚₊⋆───ʚ˚ɞ───⋆˚₊⋆ ๑ ⪩﹐
 `;
     opzione = await question(menu + '\nInserisci la tua scelta ---> ');
@@ -467,15 +467,13 @@ async function connectionUpdate(update) {
     global.qrGenerated = false;
     global.connectionMessagesPrinted = {};
     if (!global.isLogoPrinted) {
-      const chatunity = chalk.hex('#3b0d95')(`
-███████╗██████╗  ██████╗ ██████╗ ██████╗  █████╗     ██████╗  ██████╗ ████████╗
-██╔════╝██╔══██╗██╔═══██╗██╔══██╗██╔══██╗██╔══██╗    ██╔══██╗██╔═══██╗╚══██╔══╝
-███████╗██████╔╝██║   ██║██████╔╝██████╔╝███████║    ██████╔╝██║   ██║   ██║   
-╚════██║██╔══██╗██║   ██║██╔══██╗██╔══██╗██╔══██║    ██╔══██╗██║   ██║   ██║   
-███████║██████╔╝╚██████╔╝██║  ██║██║  ██║██║  ██║    ██████╔╝╚██████╔╝   ██║   
-╚══════╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝    ╚═════╝  ╚═════╝    ╚═╝
-
-`);
+      const chatunity = chalk.hex('#3b0d95')(` ██████╗██╗  ██╗ █████╗ ████████╗██╗   ██╗███╗   ██╗██╗████████╗██╗   ██╗
+██╔════╝██║  ██║██╔══██╗╚══██╔══╝██║   ██║████╗  ██║██║╚══██╔══╝╚██╗ ██╔╝
+██║     ███████║███████║   ██║   ██║   ██║██╔██╗ ██║██║   ██║    ╚████╔╝ 
+██║     ██╔══██║██╔══██║   ██║   ██║   ██║██║╚██╗██║██║   ██║     ╚██╔╝  
+╚██████╗██║  ██║██║  ██║   ██║   ╚██████╔╝██║ ╚████║██║   ██║      ██║   
+ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═══╝╚═╝   ╚═╝      ╚═╝   
+                                                                          `);
       console.log(chatunity);
       global.isLogoPrinted = true;
       await chatunityedition();
@@ -500,7 +498,7 @@ async function connectionUpdate(update) {
       global.connectionMessagesPrinted.badSession = true;
       await global.reloadHandler(true).catch(console.error);
     } else if (reason === DisconnectReason.connectionLost && !global.connectionMessagesPrinted.connectionLost) {
-      console.log(chalk.bold.blueBright(`\n╭⭑⭒━━━✦❘༻ ⚠️  CONNESSIONE PERSA COL SERVER ༺❘✦━━━⭒⭑\n┃      🔄 RICONNESSIONE IN CORSO... \n╰⭑⭒━━━✦❘༻☾⋆₊✧ sborra bot ✧₊⁺⋆☽༺❘✦━━━⭒⭑`));
+      console.log(chalk.bold.blueBright(`\n╭⭑⭒━━━✦❘༻ ⚠️  CONNESSIONE PERSA COL SERVER ༺❘✦━━━⭒⭑\n┃      🔄 RICONNESSIONE IN CORSO... \n╰⭑⭒━━━✦❘༻☾⋆₊✧ chatunity-bot ✧₊⁺⋆☽༺❘✦━━━⭒⭑`));
       global.connectionMessagesPrinted.connectionLost = true;
       await global.reloadHandler(true).catch(console.error);
     } else if (reason === DisconnectReason.connectionReplaced && !global.connectionMessagesPrinted.connectionReplaced) {
@@ -515,7 +513,7 @@ async function connectionUpdate(update) {
       global.connectionMessagesPrinted.restartRequired = true;
       await global.reloadHandler(true).catch(console.error);
     } else if (reason === DisconnectReason.timedOut && !global.connectionMessagesPrinted.timedOut) {
-      console.log(chalk.bold.yellowBright(`\n╭⭑⭒━━━✦❘༻ ⌛ TIMEOUT CONNESSIONE ༺❘✦━━━⭒⭑\n┃     🔄 RICONNESSIONE IN CORSO...\n╰⭑⭒━━━✦❘༻☾⋆⁺₊✧ sborra bot ✧₊⁺⋆☽༺❘✦━━━⭒⭑`));
+      console.log(chalk.bold.yellowBright(`\n╭⭑⭒━━━✦❘༻ ⌛ TIMEOUT CONNESSIONE ༺❘✦━━━⭒⭑\n┃     🔄 RICONNESSIONE IN CORSO...\n╰⭑⭒━━━✦❘༻☾⋆⁺₊✧ chatunity-bot ✧₊⁺⋆☽༺❘✦━━━⭒⭑`));
       global.connectionMessagesPrinted.timedOut = true;
       await global.reloadHandler(true).catch(console.error);
     } else if (reason !== DisconnectReason.restartRequired && reason !== DisconnectReason.connectionClosed && !global.connectionMessagesPrinted.unknown) {
@@ -535,8 +533,8 @@ async function connectSubBots() {
     console.log(chalk.bold.magentaBright('non ci sono Sub-Bot collegati. Creazione directory...'));
     try {
       mkdirSync(subBotDirectory, { recursive: true });
-      console.log(chalk.bold.green('✅ Directory sborra-sub creata con successo.'));
-} catch (err) {
+      console.log(chalk.bold.green('✅ Directory chatunity-sub creata con successo.'));
+    } catch (err) {
       console.log(chalk.bold.red('❌ Errore nella creazione della directory chatunity-sub:', err.message));
       return;
     }
@@ -605,7 +603,7 @@ async function connectSubBots() {
 
     console.log(chalk.bold.magenta(`
 ╭﹕₊˚ ★ ⁺˳ꕤ₊⁺・꒱
-  ⋆  ︵︵ ★ Sborra bot connesso ★ ︵︵ ⋆
+  ⋆  ︵︵ ★ ChatUnity connesso ★ ︵︵ ⋆
 ╰. ꒷꒦ ꒷꒦‧˚₊˚꒷꒦꒷‧˚₊˚꒷꒦꒷`));
     await connectSubBots();
   } catch (error) {
@@ -644,8 +642,8 @@ global.reloadHandler = async function (restatConn) {
   }
 
 
-  conn.welcome = '@user 𝐛𝐞𝐧𝐯𝐞𝐧𝐮𝐭𝐨/𝐚 𝐢𝐧 @subject';
-  conn.bye = '@user 𝐡𝐚 𝐚𝐛𝐛𝐚𝐧𝐝𝐨𝐧𝐚𝐭𝐨 𝐢𝐥 𝐠𝐫𝐮𝐩𝐩𝐨';
+  conn.welcome = '@user benvenuto/a in @subject';
+  conn.bye = '@user ha abbandonato il gruppo';
   conn.spromote = '@user è stato promosso ad amministratore';
   conn.sdemote = '@user non è più amministratore';
   conn.sIcon = 'immagine gruppo modificata';
@@ -777,7 +775,7 @@ function clearDirectory(dirPath) {
         rmSync(filePath, { recursive: true, force: true });
       }
     } catch (e) {
-      console.error(chalk.red(`⚠️Errore nella pulizia del file ${filePath}:`, e));
+      console.error(chalk.red(`Errore nella pulizia del file ${filePath}:`, e));
     }
   });
 }
@@ -796,7 +794,7 @@ function ripristinaTimer(conn) {
 _quickTest().then(() => conn.logger.info(chalk.bold.bgBlueBright(``)));
 let filePath = fileURLToPath(import.meta.url);
 const mainWatcher = watch(filePath, async () => {
-  console.log(chalk.bold.bgBlueBright("❗Main Aggiornato"));
+  console.log(chalk.bold.bgBlueBright("Main Aggiornato"));
   await global.reloadHandler(true).catch(console.error);
 });
 mainWatcher.setMaxListeners(20);
